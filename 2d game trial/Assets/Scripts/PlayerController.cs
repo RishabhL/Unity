@@ -7,10 +7,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject crossHair;
     public Rigidbody2D rb;
-    public Sprite Up;
-    public Sprite Down;
-    public Sprite Left;
-    public Sprite Right;
+   
 
     Vector3 movement;
     Vector3 aim;
@@ -67,7 +64,7 @@ public class PlayerController : MonoBehaviour
             if (cross.x > 0)
             {
                 Debug.Log("Right");
-                gameObject.GetComponent<SpriteRenderer>().sprite == Right;
+    
                 
             }
             if (cross.x < 0)
