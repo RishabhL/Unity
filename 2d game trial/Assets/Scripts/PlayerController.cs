@@ -7,7 +7,9 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject crossHair;
     public Rigidbody2D rb;
-   
+ 
+    
+
 
     Vector3 movement;
     Vector3 aim;
@@ -19,18 +21,16 @@ public class PlayerController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        
     }
     // Update is called once per frame
     void Update()
     {
-
+        
         Inputs();
         Animations();
-        Shooting();
         Move();
-            
-
-
+        Shooting();
 
     }
 
@@ -46,6 +46,10 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Magnitude", movement.magnitude);
+        animator.SetFloat("CrossX", cross.x);
+        animator.SetFloat("CrossY", cross.y);
+        animator.SetFloat("CrossMagnitude", cross.magnitude);
+        animator.SetBool("Aiming", Input.GetButtonDown("Fire1"));
 
     }
 
@@ -58,30 +62,14 @@ public class PlayerController : MonoBehaviour
     private void Shooting()
     {
         crossHair.transform.position = aim;
+        
+
         if (Input.GetButtonDown("Fire1"))
         {
-            cross = new Vector2(aim.x - movement.x, aim.y - movement.y);
-            if (cross.x > 0)
-            {
-                Debug.Log("Right");
-    
-                
-            }
-            if (cross.x < 0)
-            {
-                Debug.Log("Left");
-                Debug.Log(cross.x);
-            }
-            if (cross.y > 0)
-            {
-                Debug.Log("Up");
-                Debug.Log(cross.y);
-            }
-            if (cross.y < 0)
-            {
-                Debug.Log("Down");
-                Debug.Log(cross.y);
-            }
+            cross = new Vector2(aim.x - transform.position.x, aim.y - transform.position.y);
+
+            
+            
         }
 
 
