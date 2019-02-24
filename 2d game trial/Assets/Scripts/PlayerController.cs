@@ -7,13 +7,16 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject crossHair;
     public Rigidbody2D rb;
- 
-    
+    public Vector2 maxaim;
+    public Vector2 minaim;
+
+
 
 
     Vector3 movement;
     Vector3 aim;
     Vector2 cross;
+    
 
 
 
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour
         Animations();
         Move();
         Shooting();
+        
 
     }
 
@@ -39,6 +43,10 @@ public class PlayerController : MonoBehaviour
         movement = new Vector3(Input.GetAxisRaw("Horizontal") * 2, Input.GetAxisRaw("Vertical") * 2, 0f);
         Vector3 mouseMovement = new Vector3(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"), 0f);
         aim = aim + mouseMovement;
+        aim.x = Mathf.Clamp(aim.x, minaim.x, maxaim.x);
+        aim.y = Mathf.Clamp(aim.y, minaim.x, maxaim.y);
+
+
     }
 
     private void Animations()
@@ -67,9 +75,6 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             cross = new Vector2(aim.x - transform.position.x, aim.y - transform.position.y);
-
-            
-            
         }
 
 
