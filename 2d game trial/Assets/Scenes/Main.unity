@@ -7523,6 +7523,7 @@ MonoBehaviour:
   rb: {fileID: 439010903}
   maxaim: {x: 13.5, y: 17.5}
   minaim: {x: -18.5, y: -4.5}
+  cam: {fileID: 519420031}
 --- !u!95 &439010901
 Animator:
   serializedVersion: 3
@@ -7705,7 +7706,7 @@ Transform:
   - {fileID: 741756942}
   - {fileID: 766120858}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -7837,7 +7838,7 @@ Transform:
   - {fileID: 1086799327}
   - {fileID: 1737158618}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &714821460
 GameObject:
@@ -11479,6 +11480,7 @@ GameObject:
   - component: {fileID: 2106607282}
   - component: {fileID: 2106607284}
   - component: {fileID: 2106607285}
+  - component: {fileID: 2106607288}
   - component: {fileID: 2106607287}
   - component: {fileID: 2106607286}
   m_Layer: 0
@@ -11548,7 +11550,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2106607284
 Animator:
@@ -11587,6 +11589,12 @@ MonoBehaviour:
   AttackRadius: 1
   animator: {fileID: 2106607284}
   target: {fileID: 439010899}
+  xMove: 0
+  yMove: 0
+  xOffset: 0
+  yOffset: 0
+  magnitude: 0
+  enemyHealth: 0
 --- !u!61 &2106607286
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11634,3 +11642,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2106607288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106607281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f071a71ae39ccc8458fc815571106512, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 2

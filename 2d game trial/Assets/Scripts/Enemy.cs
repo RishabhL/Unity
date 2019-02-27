@@ -18,13 +18,18 @@ public class Enemy : MonoBehaviour
     public float AttackRadius;
     public Animator animator;
     public Transform target;
-
+    public float xMove;
+    public float yMove;
+    public float xOffset;
+    public float yOffset;
+    public float magnitude;
+    public float enemyHealth;
     Vector3 movement;
     Vector3 temp;
 
     void Start()
     {
-       
+        enemyHealth = 100;
     }
 
     void Update()
@@ -47,6 +52,9 @@ public class Enemy : MonoBehaviour
             movement = new Vector3(MovementX, MovementY, 0f);
             
             rb.velocity += new Vector2(MovementX, MovementY) * moveSpeed;
+            xMove = rb.velocity.x;
+            yMove = rb.velocity.y;
+            magnitude = rb.velocity.magnitude;
         }
         
     }
@@ -66,9 +74,9 @@ public class Enemy : MonoBehaviour
 
     private void Animations()
     {
-        animator.SetFloat("ZomX", rb.velocity.x);
-        animator.SetFloat("ZomY", rb.velocity.y);
-        animator.SetFloat("ZomMagnitude", rb.velocity.magnitude);
+        animator.SetFloat("ZomX", xMove);
+        animator.SetFloat("ZomY", yMove);
+        animator.SetFloat("ZomMagnitude", magnitude);
 
     }
     private void CheckDistance()
@@ -86,9 +94,10 @@ public class Enemy : MonoBehaviour
             }
 
             temp = transform.position;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-            
-
+            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime * 2);
+            xMove = target.position.x - transform.position.x;
+            yMove = target.position.y - transform.position.y;
+            magnitude = 0.5f;
             Animations();
         }
         

@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 maxaim;
     public Vector2 minaim;
-
+    public Camera cam;
 
 
 
@@ -46,6 +46,8 @@ public class PlayerController : MonoBehaviour
         aim.x = Mathf.Clamp(aim.x, minaim.x, maxaim.x);
         aim.y = Mathf.Clamp(aim.y, minaim.x, maxaim.y);
 
+        
+
 
     }
 
@@ -75,6 +77,24 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             cross = new Vector2(aim.x - transform.position.x, aim.y - transform.position.y);
+
+            Ray ray = cam.ScreenPointToRay(crossHair.transform.position);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+            Debug.Log("ray made");
+
+            if (hit.collider != null)
+            {
+                Debug.Log("ray cast");
+
+                // interact with hit object
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
+                if (enemy != null)
+                {
+                    Debug.Log("ray hit");
+                    hit.collider.GetComponent<Enemy>().enemyHealth -= 50;
+
+                }
+            }
         }
 
 
