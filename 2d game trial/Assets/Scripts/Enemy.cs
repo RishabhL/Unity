@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rb;
     //public Vector2 maxpos;
     //public Vector2 minpos;
+    
     public float ChaseRadius;
     public float AttackRadius;
     public Animator animator;
@@ -23,13 +24,29 @@ public class Enemy : MonoBehaviour
     public float xOffset;
     public float yOffset;
     public float magnitude;
+    public static Enemy enemyAccess;
     public float enemyHealth;
     Vector3 movement;
     Vector3 temp;
 
     void Start()
     {
-        enemyHealth = 100;
+        enemyAccess = this;
+
+        this.enemyHealth = 100;
+    }
+
+    private void FixedUpdate()
+    {
+        CheckHealth();
+    }
+
+    private void CheckHealth()
+    {
+        if (enemyHealth <= 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void Update()

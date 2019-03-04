@@ -6,11 +6,12 @@ public class Attack : MonoBehaviour
 {
     public float knockback;
     public float knockTime;
+    public float damage;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        damage = 20;
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class Attack : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
+
             if (enemy != null)
             {
                 
@@ -32,6 +34,9 @@ public class Attack : MonoBehaviour
                 enemy.AddForce(difference, ForceMode2D.Impulse);
                 StartCoroutine(KnockBk(enemy));
             }
+            Enemy healthAccess = other.GetComponent<Enemy>();
+            healthAccess.enemyHealth -= damage;
+            
         }
     }
 
