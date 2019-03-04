@@ -4,8 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Breakable
   - Enemy
+  - Collision
+  - Breakable
+  - Enterances
+  - AttackHB
   layers:
   - Default
   - TransparentFX
@@ -42,10 +45,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Objects
-    uniqueID: 2433974787
-    locked: 0
-  - name: Player
-    uniqueID: 4055017763
     locked: 0

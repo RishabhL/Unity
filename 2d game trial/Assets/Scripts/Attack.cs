@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour
 {
     public float knockback;
     public float knockTime;
+    public bool knocked;
 
     // Start is called before the first frame update
     void Start()
@@ -19,16 +20,17 @@ public class Attack : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
-            Rigidbody2D enemy = other.GetComponent<Rigidbody2D>();
+            Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
             if (enemy != null)
             {
                 
                 Vector2 difference = enemy.transform.position - transform.position;
                 difference = difference.normalized * knockback;
+                knocked = true;
                 enemy.AddForce(difference, ForceMode2D.Impulse);
                 StartCoroutine(KnockBk(enemy));
             }
@@ -41,6 +43,7 @@ public class Attack : MonoBehaviour
         {
             yield return new WaitForSeconds(knockTime);
             enemy.velocity = Vector2.zero;
+            knocked = false;
            
 
         }

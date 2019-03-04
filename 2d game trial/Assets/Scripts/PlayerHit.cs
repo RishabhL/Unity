@@ -16,11 +16,11 @@ public class PlayerHit : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Breakable"))
+        if (collision.gameObject.CompareTag("Breakable"))
         {
-            other.GetComponent<Pot>().Smash();
+            collision.GetComponent<Pot>().Smash();
         }
     }
 }   

@@ -17,7 +17,9 @@ public class Enemy : MonoBehaviour
     public float ChaseRadius;
     public float AttackRadius;
     public Animator animator;
-    public Transform target;
+    public GameObject target;
+
+    public bool Moving;
 
     Vector3 movement;
     Vector3 temp;
@@ -29,40 +31,38 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-
+          
         CheckDistance();
-        //CheckBoundaries();
-        Animations();
+        
 
 
     }
-   
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Collision"))
+        {
+            Debug.Log("Collided");
+            rb.velocity = new Vector2(-rb.velocity.x, -rb.velocity.y);
+            Animations();
+        }
+    }
+
     private void Move()
     {
         if (Time.time >= timeChange)
         {
+            rb.velocity = new Vector2(0, 0);
             MovementX = Random.Range(1, -2);
             MovementY = Random.Range(1, -2);
             timeChange = Time.time + 2;
             movement = new Vector3(MovementX, MovementY, 0f);
-            
+
+
             rb.velocity += new Vector2(MovementX, MovementY) * moveSpeed;
         }
         
     }
 
-    //private void CheckBoundaries()
-    //{
-        //if (transform.position.x >= maxpos.x || transform.position.x <= minpos.x)
-        //{
-            //rb.velocity = new Vector2(-RandomX, RandomY) * moveSpeed;
-        //}
-        //if (transform.position.y >= maxpos.y || transform.position.y <= minpos.y)
-        //{
-            //rb.velocity = new Vector2(RandomX, -RandomY) * moveSpeed;
-        //}
-
-    //}
 
     private void Animations()
     {
@@ -73,28 +73,26 @@ public class Enemy : MonoBehaviour
     }
     private void CheckDistance()
     {
-        if(Vector3.Distance(target.position, transform.position) <= ChaseRadius && Vector3.Distance(target.position, transform.position) > AttackRadius)
+        if(Vector3.Distance(target.transform.position, transform.position) <= ChaseRadius && Vector3.Distance(target.transform.position, transform.position) > AttackRadius)
         {
-            if (MovementX > 0f || MovementX < 0f) 
+            Moving = target.GetComponent<Attack>().knocked;
+
+            if(Moving == false)
             {
                 rb.velocity = new Vector2(0f, 0f);
             }
-            if (MovementY > 0f || MovementY < 0f)
+            temp = target.transform.position - transform.position;
+            transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+            animator.SetFloat("ZomX", temp.x);
+            animator.SetFloat("ZomY", temp.y);
+            animator.SetFloat("ZomMagnitude", temp.magnitude);
 
-            {
-                rb.velocity = new Vector2(0f, 0f);
-            }
-
-            temp = transform.position;
-            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
-            
-
-            Animations();
         }
         
         else
         {
             Move();
+            Animations();
         }
    
 
