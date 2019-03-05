@@ -545,6 +545,7 @@ MonoBehaviour:
   knockback: 3
   knockTime: 0.2
   knocked: 0
+  damage: 1
 --- !u!1 &467572585
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +620,7 @@ Transform:
   m_GameObject: {fileID: 467572585}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children:
   - {fileID: 42297832}
   m_Father: {fileID: 439010899}
@@ -4014,9 +4015,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1507418297}
   - component: {fileID: 1507418300}
-  - component: {fileID: 1507418301}
-  - component: {fileID: 1507418299}
   - component: {fileID: 1507418298}
+  - component: {fileID: 1507418299}
   m_Layer: 0
   m_Name: Terrain - Night
   m_TagString: Untagged
@@ -4038,25 +4038,23 @@ Transform:
   m_Father: {fileID: 18218014}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1507418298
-Animator:
-  serializedVersion: 3
+--- !u!114 &1507418298
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507418296}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80be6fb37460f0144a3ea8ed9215301c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TilemapCo: {fileID: 1507418300}
+  CollCo: {fileID: 965755699}
+  co: 0.4823529
+  currentco: 1
+  timeChange: 0.2
 --- !u!483693784 &1507418299
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -11058,19 +11056,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1507418301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1507418296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80be6fb37460f0144a3ea8ed9215301c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TilemapCo: {fileID: 1507418300}
 --- !u!1 &1570621635
 GameObject:
   m_ObjectHideFlags: 0
@@ -11606,6 +11591,7 @@ MonoBehaviour:
   AttackRadius: 1
   animator: {fileID: 2106607284}
   target: {fileID: 439010897}
+  health: 5
   Moving: 0
 --- !u!61 &2106607286
 BoxCollider2D:

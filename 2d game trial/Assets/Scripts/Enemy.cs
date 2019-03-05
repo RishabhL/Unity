@@ -12,12 +12,14 @@ public class Enemy : MonoBehaviour
 
     public float moveSpeed = 0.2f;
     public Rigidbody2D rb;
-    //public Vector2 maxpos;
-    //public Vector2 minpos;
+
     public float ChaseRadius;
     public float AttackRadius;
     public Animator animator;
     public GameObject target;
+
+    public int health;
+    private int damagedlt;
 
     public bool Moving;
 
@@ -39,11 +41,15 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Collision"))
+        if (collision.gameObject.CompareTag("AttackHB"))
         {
-            Debug.Log("Collided");
-            rb.velocity = new Vector2(-rb.velocity.x, -rb.velocity.y);
-            Animations();
+            damagedlt = collision.GetComponentInParent<Attack>().damage;
+            health -= damagedlt;
+            if (health <= 0)
+            {
+                gameObject.SetActive(false);
+
+            }
         }
     }
 

@@ -18,7 +18,7 @@ public class PlayerHit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Breakable"))
+        if (collision.CompareTag("Breakable"))
         {
             collision.GetComponent<Pot>().Smash();
         }

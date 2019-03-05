@@ -7,6 +7,7 @@ public class Attack : MonoBehaviour
     public float knockback;
     public float knockTime;
     public bool knocked;
+    public int damage;
 
     // Start is called before the first frame update
     void Start()
