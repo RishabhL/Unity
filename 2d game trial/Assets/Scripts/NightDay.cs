@@ -7,33 +7,100 @@ public class NightDay : MonoBehaviour
 {
     public Tilemap TilemapCo;
     public Tilemap CollCo;
-    public float co = 0.4823529f;
+
+    public float co = 0.48f;
     public float currentco = 1f;
-    public float timeChange = 1f;
+    private float timeChange = 0.2f;
+
+    public bool day = true;
+    public bool ischanging = false;
+    public float WaitSeconds = 5f;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
-        TilemapCo.color = new Color(currentco, currentco, currentco);
-        CollCo.color = new Color(currentco, currentco, currentco);
+ 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= timeChange)
+        if (day == true)
         {
-            if (currentco > co)
+            if (ischanging == false)
+            {
+                Debug.Log("Is Day");
+                StartCoroutine(WaitDay());
+            }
+            else
+            {
+                Debug.Log("Change Day");
+                ChangeDay();
+            }
+        }
+        else
+        {
+            if (ischanging == false)
+            {
+                Debug.Log("Is Night");
+                StartCoroutine(WaitNight());
+            }
+            else
+            {
+                Debug.Log("Change Night");
+                ChangeNight();
+            }
+        }
+
+    }
+    void ChangeDay()
+    {
+        if (currentco <= 1f)
+        {
+            if (Time.time >= timeChange)
+            {
+                currentco += 0.01f;
+                TilemapCo.color = new Color(currentco, currentco, currentco);
+                CollCo.color = new Color(currentco, currentco, currentco);
+                timeChange = Time.time + 1f;
+            }
+        }
+        else
+        {
+            day = true;
+            ischanging = false;
+        }
+    }
+    void ChangeNight()
+    {
+        if (currentco >= co)
+        {
+            if (Time.time >= timeChange)
             {
                 currentco -= 0.01f;
                 TilemapCo.color = new Color(currentco, currentco, currentco);
                 CollCo.color = new Color(currentco, currentco, currentco);
-                timeChange = Time.time + 0.2f;
+                timeChange = Time.time + 1f;
             }
-            
-
+        }
+        else
+        {
+            day = false;
+            ischanging = false;
         }
     }
+    public IEnumerator WaitDay()
+    {
+        yield return new WaitForSecondsRealtime(WaitSeconds);
+        day = false;
+        ischanging = true;
+    }
+    public IEnumerator WaitNight()
+    {
+        yield return new WaitForSecondsRealtime(WaitSeconds);
+        day = true;
+        ischanging = true;
+    }
+
 }

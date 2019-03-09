@@ -4052,9 +4052,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TilemapCo: {fileID: 1507418300}
   CollCo: {fileID: 965755699}
-  co: 0.4823529
+  co: 0.48
   currentco: 1
-  timeChange: 0.2
+  day: 1
+  ischanging: 0
 --- !u!483693784 &1507418299
 TilemapRenderer:
   m_ObjectHideFlags: 0
