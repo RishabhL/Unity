@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     public float ChaseRadius;
     public float AttackRadius;
     public Animator animator;
-    public GameObject target;
+    private GameObject target;
 
     public int health;
     private int damagedlt;
@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-       
+        target = GameObject.Find("Player");
     }
 
     void Update()
@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
             health -= damagedlt;
             if (health <= 0)
             {
-                gameObject.SetActive(false);
+                Destroy(gameObject);
 
             }
         }
