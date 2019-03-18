@@ -60,16 +60,6 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Aiming", Input.GetButtonDown("Fire1"));
 
     }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Collision"))
-        {
-            Debug.Log("Collided");
-            rb.velocity = new Vector2(-rb.velocity.x, -rb.velocity.y);
-            Animations();
-        }
-    }
-
     private void Move()
     {
         // transform.position = transform.position + movement * Time.deltaTime;

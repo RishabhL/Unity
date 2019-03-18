@@ -9,8 +9,7 @@ public class Enemy : MonoBehaviour
     private float MovementY;
 
 
-
-    public float moveSpeed = 0.2f;
+    private float moveSpeed = 1f;
     public Rigidbody2D rb;
 
     public float ChaseRadius;
@@ -20,8 +19,9 @@ public class Enemy : MonoBehaviour
 
     public int health;
     private int damagedlt;
+    public int dodamage = 2;
 
-    public bool Moving;
+    public bool Moving = false;
 
     Vector3 movement;
     Vector3 temp;
@@ -29,16 +29,13 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         target = GameObject.Find("Player");
+        Moving = false;
     }
 
     void Update()
     {
-          
         CheckDistance();
-        
-
-
-    }
+    }   
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("AttackHB"))
@@ -48,7 +45,6 @@ public class Enemy : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(gameObject);
-
             }
         }
     }
@@ -59,12 +55,10 @@ public class Enemy : MonoBehaviour
         {
             rb.velocity = new Vector2(0, 0);
             MovementX = Random.Range(1, -2);
-            MovementY = Random.Range(1, -2);
-            timeChange = Time.time + 2;
+            MovementY = Random.Range(1, -2);      
             movement = new Vector3(MovementX, MovementY, 0f);
-
-
             rb.velocity += new Vector2(MovementX, MovementY) * moveSpeed;
+            timeChange = Time.time + 2;
         }
         
     }
@@ -77,11 +71,12 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("ZomMagnitude", rb.velocity.magnitude);
 
     }
+
     private void CheckDistance()
     {
         if(Vector3.Distance(target.transform.position, transform.position) <= ChaseRadius && Vector3.Distance(target.transform.position, transform.position) > AttackRadius)
         {
-            Moving = target.GetComponent<Attack>().knocked;
+            Moving = target.GetComponentInChildren<Attack>().knocked;
 
             if(Moving == false)
             {

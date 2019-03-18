@@ -114,13 +114,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 148aa8d41c2dce94a8590f52b1d71e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.75
   rb: {fileID: 2344448848826070791}
   ChaseRadius: 3
-  AttackRadius: 1
+  AttackRadius: 0.3
   animator: {fileID: 2344448848826070788}
-  target: {fileID: 3181241277334418203, guid: c994b4188239285428d30455d66a8f02, type: 3}
   health: 5
+  dodamage: 2
   Moving: 0
 --- !u!50 &2344448848826070791
 Rigidbody2D:

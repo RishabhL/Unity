@@ -30,12 +30,10 @@ public class NightDay : MonoBehaviour
         {
             if (ischanging == false)
             {
-                Debug.Log("Is Day");
                 StartCoroutine(WaitDay());
             }
             else
             {
-                Debug.Log("Change Day");
                 ChangeDay();
             }
         }
@@ -43,12 +41,10 @@ public class NightDay : MonoBehaviour
         {
             if (ischanging == false)
             {
-                Debug.Log("Is Night");
                 StartCoroutine(WaitNight());
             }
             else
             {
-                Debug.Log("Change Night");
                 ChangeNight();
             }
         }
