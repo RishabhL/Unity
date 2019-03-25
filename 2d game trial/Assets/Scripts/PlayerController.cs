@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 maxaim;
     public Vector2 minaim;
 
+    public bool isattacking;
 
 
 

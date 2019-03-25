@@ -9,6 +9,8 @@ TagManager:
   - Breakable
   - Enterances
   - AttackHB
+  - Health Pot
+  - Coin
   layers:
   - Default
   - TransparentFX

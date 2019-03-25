@@ -5,6 +5,9 @@ using UnityEngine;
 public class Pot : MonoBehaviour
 {
     private Animator anim;
+    private int rnd;
+    public GameObject HeartModule;
+    public GameObject Coin;
     
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,26 @@ public class Pot : MonoBehaviour
     IEnumerator BreakObj()
     {
         yield return new WaitForSeconds(0.3f);
+        SpawnRandom();
         this.gameObject.SetActive(false);
+    }
+    void SpawnRandom()
+    {
+        rnd = Random.Range(1, 11);
+        if (rnd == 1)
+        {
+            Instantiate(HeartModule, transform.position, Quaternion.identity);
+        }
+        if (rnd > 1 && rnd < 6)
+        {
+            Instantiate(Coin, transform.position, Quaternion.identity);
+        }
+        if (rnd >= 6)
+        {
+            Debug.Log("Spawning Weapon");
+        }
+        
+
+
     }
 }

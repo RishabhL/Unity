@@ -47,6 +47,11 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            collision.GetComponent<PlayerHealth>().health -= 1;
+
+        }
     }
 
     private void Move()
@@ -76,7 +81,7 @@ public class Enemy : MonoBehaviour
     {
         if(Vector3.Distance(target.transform.position, transform.position) <= ChaseRadius && Vector3.Distance(target.transform.position, transform.position) > AttackRadius)
         {
-            Moving = target.GetComponentInChildren<Attack>().knocked;
+            Moving = target.GetComponent<Attack>().knocked;
 
             if(Moving == false)
             {
@@ -89,7 +94,8 @@ public class Enemy : MonoBehaviour
             animator.SetFloat("ZomMagnitude", temp.magnitude);
 
         }
-        
+
+
         else
         {
             Move();
@@ -98,4 +104,5 @@ public class Enemy : MonoBehaviour
    
 
     }
+
 }

@@ -21,32 +21,28 @@ public class Attack : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
-    {
+    { 
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Rigidbody2D enemy = collision.GetComponent<Rigidbody2D>();
-            if (enemy != null)
+            Rigidbody2D hit = collision.GetComponent<Rigidbody2D>();
+            if (hit != null)
             {
-                Vector2 difference = enemy.transform.position - transform.position;
+                Vector2 difference = hit.transform.position - transform.position;
                 difference = difference.normalized * knockback;
                 knocked = true;
-                enemy.AddForce(difference, ForceMode2D.Impulse);
-                StartCoroutine(KnockBk(enemy));
+                hit.AddForce(difference, ForceMode2D.Impulse);
+                StartCoroutine(KnockBk(hit));
             }
         }
     }
         
     private IEnumerator KnockBk(Rigidbody2D enemy)
     {
+        yield return new WaitForSeconds(knockTime);
         if (enemy != null)
         {
-            yield return new WaitForSeconds(knockTime);
-            knocked = false;
-            if (enemy != null)
-            {
-                enemy.velocity = new Vector2(0f, 0f);
-            }
-            
+            enemy.velocity = new Vector2(0f, 0f);
         }
+        knocked = false;
     }
 }
