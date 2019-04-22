@@ -11,6 +11,9 @@ TagManager:
   - AttackHB
   - Health Pot
   - Coin
+  - Interactable
+  - Item
+  - Inventory
   layers:
   - Default
   - TransparentFX

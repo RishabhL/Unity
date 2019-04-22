@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-        if (collision.gameObject.CompareTag("Player"))
+        else if (collision.gameObject.CompareTag("Player"))
         {
             collision.GetComponent<PlayerHealth>().health -= 1;
 
