@@ -15,15 +15,14 @@ public class ItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
 
     public void Awake()
     {
-        originalparent = transform.parent;
-        Debug.Log(originalparent);
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         startposition = transform.position;
+        originalparent = transform.parent.parent;
         transform.SetParent(transform.parent.parent.parent);
-        currentitem = Inventory.instance.items[transform.parent.GetSiblingIndex()];
         GetComponent<CanvasGroup>().blocksRaycasts = false;
 
     }
@@ -35,16 +34,16 @@ public class ItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
+        Debug.Log("Dragged");
         transform.position = startposition;
-        Debug.Log(originalparent);
-        transform.SetParent(originalparent);
+        transform.SetParent(originalparent.GetChild(0));
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         if (EventSystem.current.IsPointerOverGameObject() == false)
         {
             Debug.Log("Dropping onto Floor");
         }
-        
+
+        Inventory.instance.onItemChangedCallback.Invoke();
     }
     
 }

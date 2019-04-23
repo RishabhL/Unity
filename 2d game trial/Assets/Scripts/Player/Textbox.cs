@@ -35,7 +35,7 @@ public class Textbox : MonoBehaviour
         {
             isactive = false;
             text.SetActive(false);
-
+            
         }
     }
     private void OnTriggerStay2D(Collider2D collision)

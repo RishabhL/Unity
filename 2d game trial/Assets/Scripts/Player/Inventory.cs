@@ -32,7 +32,6 @@ public class Inventory : MonoBehaviour
             }
             count = count1;
         }
-        Debug.Log(count);
 
         if (count >= space)
         {
@@ -45,7 +44,6 @@ public class Inventory : MonoBehaviour
 
         if (onItemChangedCallback != null)
         {
-            Debug.Log("Updating UI");
             onItemChangedCallback.Invoke();
         }
         return true;

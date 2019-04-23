@@ -8,6 +8,8 @@ public class Pot : MonoBehaviour
     private int rnd;
     public GameObject HeartModule;
     public GameObject Coin;
+    public GameObject Axe;
+    public GameObject Spear;
     
     // Start is called before the first frame update
     void Start()
@@ -46,7 +48,15 @@ public class Pot : MonoBehaviour
         }
         if (rnd >= 6)
         {
-            Debug.Log("Spawning Weapon");
+            int rnd_w = Random.Range(1, 2);
+            if (rnd_w == 1)
+            {
+                Instantiate(Axe, transform.position, Quaternion.identity);
+            }
+            if (rnd_w == 2)
+            {
+                Instantiate(Spear, transform.position, Quaternion.identity);
+            }
         }
         
 

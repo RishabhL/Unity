@@ -24,10 +24,6 @@ public class Slot : MonoBehaviour, IDropHandler
         Icon.enabled = false;
 
     }
-    public void OnRemove()
-    {
-        Inventory.instance.Remove(item);
-    }
     public void UseItem()
     {
         if (item != null)
@@ -39,10 +35,8 @@ public class Slot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Dropped");
-        Item item = Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().transform.parent.GetSiblingIndex()];
-        Debug.Log(eventData.pointerDrag.GetComponent<ItemUI>().transform.parent.GetSiblingIndex());
-        Debug.Log(transform.GetSiblingIndex());
-        Inventory.instance.items.RemoveAt(eventData.pointerDrag.GetComponent<ItemUI>().transform.parent.GetSiblingIndex());
+        Item item = Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()];
+        Inventory.instance.items.RemoveAt(eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex());
         Inventory.instance.items.Insert(transform.GetSiblingIndex(), item);
         
 
