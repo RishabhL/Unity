@@ -6829,8 +6829,7 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 5372489292448224276, guid: 0eb52b7b7ca6aa84db697cc33f803224, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb52b7b7ca6aa84db697cc33f803224, type: 3}
 --- !u!224 &1000932549 stripped
 RectTransform:
@@ -15686,6 +15685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1636013178}
+  - component: {fileID: 1636013179}
   m_Layer: 5
   m_Name: Hotbar
   m_TagString: Untagged
@@ -15710,9 +15710,29 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 49.94995}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 537.8, y: 99.899994}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1636013179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636013177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 156e0ce80f3d63349821faf133d5af1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1648561655
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18409,6 +18429,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5237375875613295756, guid: 0eb52b7b7ca6aa84db697cc33f803224,
+        type: 3}
+      propertyPath: m_BlocksRaycasts
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb52b7b7ca6aa84db697cc33f803224, type: 3}
