@@ -21,7 +21,7 @@ public class HSlotItemUI : MonoBehaviour
     {
         startposition = transform.position;
         originalparent = transform.parent.parent;
-        transform.SetParent(transform.parent.parent.parent);
+        transform.SetParent(transform.parent.parent.parent.parent.parent);
         GetComponent<CanvasGroup>().blocksRaycasts = false;
 
     }
