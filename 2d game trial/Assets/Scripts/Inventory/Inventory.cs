@@ -7,7 +7,6 @@ public class Inventory : MonoBehaviour
     
     public static Inventory instance;
     public int space = 30;
-    public int count = 30;
     public List<Item> items = new List<Item>(30);
 
 
@@ -23,31 +22,22 @@ public class Inventory : MonoBehaviour
 
     public bool Add(Item item)
     {
-        int count1 = 30;
-        foreach (Item i in items)
+        for (int i = 0; i < space; i++)
         {
-            if (i == null)
+            if (items[i] == null)
             {
-                count1 -= 1;
+                items[i] = item;
+                Debug.Log("Added Item" + items[i]);
+                if (onItemChangedCallback != null)
+                {
+                    onItemChangedCallback.Invoke();
+                }
+                return true;
             }
-            count = count1;
         }
 
-        if (count >= space)
-        {
-            Debug.Log("Not enough room");
-            return false;
-        }
-
-        items[count] = item;
-        Debug.Log("Adding Item");
-
-        if (onItemChangedCallback != null)
-        {
-            onItemChangedCallback.Invoke();
-        }
-        return true;
-
+        Debug.Log("Not enough room!");
+        return false;
     }
     public void Remove(Item item)
     {
@@ -58,6 +48,4 @@ public class Inventory : MonoBehaviour
             onItemChangedCallback.Invoke();
         }
     }
-
-
 }

@@ -22,7 +22,6 @@ public class Chest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("pressed");
             pressed = true;
         }
 
@@ -32,10 +31,8 @@ public class Chest : MonoBehaviour
 
         if (collsion.CompareTag("Player"))
         {
-            Debug.Log("in");
             if (pressed == true && isopened == false)
             {
-                Debug.Log("Opened");
                 animator.SetBool("isopen", true);
                 isopened = true;
                 SpawnItem();
@@ -49,7 +46,6 @@ public class Chest : MonoBehaviour
 
         if (collsion.CompareTag("Player"))
         {
-            Debug.Log("out");
             if (pressed == true && isopened == false)
             {
                 Debug.Log("Opened");

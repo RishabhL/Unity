@@ -176,7 +176,7 @@ a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 2bb90bb3a7056478a30ba48b4fd4ce2f Assembly-CSharp.dll:.PlayerController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EquipmentManager
-f11a79eea370a0b4fc68dde1b5c4089a Assembly-CSharp.dll:.Inventory
+b04d548399136052f80f7efa8a039d23 Assembly-CSharp.dll:.Inventory
 68fe9be06c03792d62c0208478f84327 Assembly-CSharp.dll:.Item
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
 190393ff8e4ba1f241746f72591fac7f Assembly-CSharp.dll:.Pot

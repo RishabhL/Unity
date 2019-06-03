@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HSlotItemUI : MonoBehaviour
+public class HSlotItemUI : MonoBehaviour, IDragHandler, IEndDragHandler
 {
     public Transform originalparent;
 

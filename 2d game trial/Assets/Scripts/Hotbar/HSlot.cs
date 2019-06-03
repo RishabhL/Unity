@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HSlot : MonoBehaviour
+public class HSlot : MonoBehaviour, IDropHandler
 {
     // Start is called before the first frame update
     void Start()
@@ -18,6 +18,18 @@ public class HSlot : MonoBehaviour
     }
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("Dropped on HSlot");
+        //Debug.Log("Dropped");
+        //if (eventData.pointerDrag.GetComponent<ItemUI>() != null)
+        //{
+        //    Item tmp = Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()];
+        //    Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()] = Inventory.instance.items[transform.GetSiblingIndex()];
+        //    Inventory.instance.items[transform.GetSiblingIndex()] = tmp;
+        //}
+        //else if (eventData.pointerDrag.GetComponent<HSlotItemUI>() != null)
+        //{
+        //    Item tmp = Hotbar.instance.items[eventData.pointerDrag.GetComponent<HSlotItemUI>().originalparent.GetSiblingIndex()];
+        //    Hotbar.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()] = Inventory.instance.items[transform.GetSiblingIndex()];
+        //    Inventory.instance.items[transform.GetSiblingIndex()] = tmp;
+        //}
     }
 }

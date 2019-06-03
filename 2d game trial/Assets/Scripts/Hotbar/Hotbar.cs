@@ -14,7 +14,7 @@ public class Hotbar : MonoBehaviour
          KeyCode.Alpha6,
          KeyCode.Alpha7,
 
-     };
+     }; 
     private List<Transform> hslots = new List<Transform>();
 
     public List<Item> items = new List<Item>(7);
@@ -37,7 +37,7 @@ public class Hotbar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < transform.GetChild(0).childCount; i ++)
+        for (int i = 0; i < transform.childCount; i ++)
         {
             if (Input.GetKeyDown(keyCodes[i]))
             {
@@ -53,14 +53,15 @@ public class Hotbar : MonoBehaviour
     }
     void InitialiseHSlots()
     {
-        for (int n = 0; n < transform.GetChild(0).childCount; n++)
+        for (int n = 0; n < transform.childCount; n++)
         {
-            hslots.Add(transform.GetChild(0).GetChild(n).GetChild(0).transform);
+            hslots.Add(transform.GetChild(n).GetChild(0).transform);
         }
+        Debug.Log(hslots);
     }
     void SetActiveHSlot(Transform Hslot)
     {
-        for (int n = 0; n < transform.GetChild(0).childCount; n++)
+        for (int n = 0; n < transform.childCount; n++)
         {
             hslots[n].GetComponent<Image>().color = new Color(255, 255, 255);
         }

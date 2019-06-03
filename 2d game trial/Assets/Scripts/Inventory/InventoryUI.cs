@@ -12,7 +12,6 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        count = Inventory.instance.count;
         inventory = Inventory.instance;
         inventory.onItemChangedCallback += UpdateUI;
 
@@ -29,24 +28,18 @@ public class InventoryUI : MonoBehaviour
     }
     void UpdateUI()
     {
-        for (int i = 0; i < slots.Length; i++)
+        for (int i = 0; i < inventory.items.Count; i++)
         {
-            if (i < count)
+            if (inventory.items[i] != null)
             {
-                if (inventory.items[i] != null)
-                {
-                    slots[i].AddItem(inventory.items[i]);
-                }
-                else
-                {
-                    slots[i].RemoveItem();
-                }
+                slots[i].AddItem(inventory.items[i]);
+                
             }
-            else
-            {
+            else {
                 slots[i].RemoveItem();
             }
-        }
 
+
+        }
     }
 }
