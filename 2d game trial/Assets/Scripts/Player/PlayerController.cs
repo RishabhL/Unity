@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Magnitude", movement.magnitude);
-        animator.SetFloat("CrossX", cross.x);
+        animator.SetFloat("CrossX", cross.x);   
         animator.SetFloat("CrossY", cross.y);
         animator.SetFloat("CrossMagnitude", cross.magnitude);
         animator.SetBool("Aiming", Input.GetButtonDown("Fire1"));
@@ -95,7 +95,6 @@ public class PlayerController : MonoBehaviour
         movement = Vector3.zero;
         cross = Vector2.zero;
         crossHair.transform.position = rb.position;
-
 
     }
 }

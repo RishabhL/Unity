@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 
@@ -66,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (health <= 0)
         {
-            Debug.Log("Dead");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
         }
 

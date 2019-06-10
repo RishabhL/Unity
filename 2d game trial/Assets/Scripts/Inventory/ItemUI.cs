@@ -34,16 +34,18 @@ public class ItemUI : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHa
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragged");
         transform.position = startposition;
         transform.SetParent(originalparent.GetChild(0));
         GetComponent<CanvasGroup>().blocksRaycasts = true;
         if (EventSystem.current.IsPointerOverGameObject() == false)
         {
-            Debug.Log("Dropping onto Floor");
+            GameObject player = GameObject.Find("Player");
+            Instantiate(Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()].itemprefab, new Vector3(player.transform.position.x - 1f, player.transform.position.y, player.transform.position.x) , Quaternion.identity);
+            Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()] = null;
         }
 
         Inventory.instance.onItemChangedCallback.Invoke();
+        Hotbar.instance.onItemChangedCallback.Invoke();
     }
     
 }

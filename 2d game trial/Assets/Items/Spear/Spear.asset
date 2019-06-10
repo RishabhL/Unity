@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Itemname: Spear
   Icon: {fileID: 21300000, guid: ddf9bb7810b99994d947160660366180, type: 3}
-  animationlist: []
+  itemprefab: {fileID: 2369364105589353993, guid: 561f313826c7f664a9725ecbc4f9b0e1,
+    type: 3}
   Damage: 2

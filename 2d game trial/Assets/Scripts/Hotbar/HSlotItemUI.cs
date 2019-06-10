@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class HSlotItemUI : MonoBehaviour, IDragHandler, IEndDragHandler
+public class HSlotItemUI : MonoBehaviour, IDragHandler, IEndDragHandler, IBeginDragHandler
 {
     public Transform originalparent;
 
@@ -21,7 +21,7 @@ public class HSlotItemUI : MonoBehaviour, IDragHandler, IEndDragHandler
     {
         startposition = transform.position;
         originalparent = transform.parent.parent;
-        transform.SetParent(transform.parent.parent.parent.parent.parent);
+        transform.SetParent(transform.parent.parent.parent.parent);
         GetComponent<CanvasGroup>().blocksRaycasts = false;
 
     }
@@ -33,7 +33,6 @@ public class HSlotItemUI : MonoBehaviour, IDragHandler, IEndDragHandler
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("Dragged");
         transform.position = startposition;
         transform.SetParent(originalparent.GetChild(0));
         GetComponent<CanvasGroup>().blocksRaycasts = true;
@@ -41,6 +40,7 @@ public class HSlotItemUI : MonoBehaviour, IDragHandler, IEndDragHandler
         {
             Debug.Log("Dropping onto Floor");
         }
-
+        Inventory.instance.onItemChangedCallback.Invoke();
+        Hotbar.instance.onItemChangedCallback.Invoke();
     }
 }

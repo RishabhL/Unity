@@ -4,6 +4,7 @@ C:/Users/yashpal/Documents/GitHub/Unity/2d game trial/Builds/2d game trial.exe
 SceneListBegin?
 Assets/Scenes/Start.unity
 Assets/Scenes/Main.unity
+Assets/Scenes/Death_Scene.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
@@ -115,10 +116,10 @@ e0ee4b3d4e27318934cc940a969d3d96 UnityEngine.Networking.dll:UnityEngine.Networki
 ad9173d3a69d99153f38ed4b62226129 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransform
 9b895dcabbc1faf095c000c32d471fd0 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformChild
 5887ef1bc706b22b773d253fd443ceef UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
-ee4bb629d9ef4e7fe3b55b50361bf1a7 Assembly-CSharp.dll:.NightDay
+f5947ca0af12cfbe20b7c2f02004e0c1 Assembly-CSharp.dll:.NightDay
 7536b68bdeab6e871dce32c6e5646c7b Assembly-CSharp.dll:.CameraMovement
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-0a4420850b7aed6f09365be745e7f8e6 Assembly-CSharp.dll:.ArmourItem
+ed1de5fbb04474388934e29243778018 Assembly-CSharp.dll:.ArmourItem
 2b0ca451d15d39fdf19aba76425dd335 Assembly-CSharp.dll:.Attack
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
@@ -134,7 +135,7 @@ b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 954c547c811ba4605b8779cd54c5ccbf Assembly-CSharp.dll:.HSlotItemUI
 17e54309cf4e59bdfdbbb8d16c59b752 Assembly-CSharp.dll:.ItemPickup
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
-1338a14211be79ff81ec931c540bc184 Assembly-CSharp.dll:.Hotbar
+cf2677c019364adb9ee8e3c130ccf816 Assembly-CSharp.dll:.Hotbar
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 1dcb82730d983b77cec736c6ef19f814 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -171,17 +172,21 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
 adae1dda1863c62e80f652991b78f20b Assembly-CSharp.dll:.RandomTiles
 666d74bf583fed163d408a40fbba8f8c Assembly-CSharp.dll:.PlayerHealth
+6d2d318403028af9b1c9566a1a5c53b3 Assembly-CSharp.dll:.storedt
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
+6745ca7193328ea8f20e928bb3153bbf Assembly-CSharp.dll:.displaystored
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 2bb90bb3a7056478a30ba48b4fd4ce2f Assembly-CSharp.dll:.PlayerController
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.EquipmentManager
 b04d548399136052f80f7efa8a039d23 Assembly-CSharp.dll:.Inventory
-68fe9be06c03792d62c0208478f84327 Assembly-CSharp.dll:.Item
+da7589bf4fe5eb48fefa1fea5b373bf0 Assembly-CSharp.dll:.Item
 d791aa6007fa3640be1164ea75bb087d Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
+99a4801860bb6dfacc754fb9b0b75f48 Assembly-CSharp.dll:.HotbarUI
 190393ff8e4ba1f241746f72591fac7f Assembly-CSharp.dll:.Pot
-71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.HSlot
+d7b124b2017fc6ca0bc138215f361736 Assembly-CSharp.dll:.HSlot
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.TS
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
-9acf9b6793ec6eafb0597d6f3529bddd Assembly-CSharp.dll:.WeaponItem
+9f154fbf809e1aab6b617089c1127445 Assembly-CSharp.dll:.WeaponItem

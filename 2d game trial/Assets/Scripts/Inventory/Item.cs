@@ -7,7 +7,7 @@ public class Item : ScriptableObject
 {
     public string Itemname = "New Item";
     public Sprite Icon = null;
-    public AnimationClip[] animationlist;
+    public GameObject itemprefab;
 
     public virtual void Use()
     {

@@ -34,27 +34,19 @@ public class Slot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("Dropped");
 
         if (eventData.pointerDrag.GetComponent<ItemUI>() != null)
         {
-            //Item item = Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()];
-            //Inventory.instance.items.RemoveAt(eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex());
-            //Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()] = null;
-            //Inventory.instance.items.Insert(transform.GetSiblingIndex(), item);
-
             Item tmp = Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()];
+
             Inventory.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()] = Inventory.instance.items[transform.GetSiblingIndex()];
+
             Inventory.instance.items[transform.GetSiblingIndex()] = tmp;
         }
         else if (eventData.pointerDrag.GetComponent<HSlotItemUI>() != null)
         {
-            //Item item = Hotbar.instance.items[eventData.pointerDrag.GetComponent<HSlotItemUI>().originalparent.GetSiblingIndex()];
-            //Hotbar.instance.items.RemoveAt(eventData.pointerDrag.GetComponent<HSlotItemUI>().originalparent.GetSiblingIndex());
-            //Inventory.instance.items.Insert(transform.GetSiblingIndex(), item);
-
             Item tmp = Hotbar.instance.items[eventData.pointerDrag.GetComponent<HSlotItemUI>().originalparent.GetSiblingIndex()];
-            Hotbar.instance.items[eventData.pointerDrag.GetComponent<ItemUI>().originalparent.GetSiblingIndex()] = Inventory.instance.items[transform.GetSiblingIndex()];
+            Hotbar.instance.items[eventData.pointerDrag.GetComponent<HSlotItemUI>().originalparent.GetSiblingIndex()] = Inventory.instance.items[transform.GetSiblingIndex()];
             Inventory.instance.items[transform.GetSiblingIndex()] = tmp;
         }
         

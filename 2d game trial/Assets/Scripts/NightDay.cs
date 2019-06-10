@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
+using TMPro;
 
 public class NightDay : MonoBehaviour
 {
@@ -14,13 +16,18 @@ public class NightDay : MonoBehaviour
 
     public bool day = true;
     public bool ischanging = false;
-    public float WaitSeconds = 5f;
+    public float WaitSeconds = 30f;
+
+    public TextMeshProUGUI DayNum;
+    public TextMeshProUGUI TimeNum;
+    public TextMeshProUGUI TimeText;
+
+    private float timefordatetimechange = 0f;
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
- 
     }
 
     // Update is called once per frame
@@ -48,6 +55,7 @@ public class NightDay : MonoBehaviour
                 ChangeNight();
             }
         }
+        UpdateTime();
 
     }
     void ChangeDay()
@@ -98,5 +106,32 @@ public class NightDay : MonoBehaviour
         day = true;
         ischanging = true;
     }
-
+    void UpdateTime()
+    {
+        if (Time.time >= timefordatetimechange)
+        {
+            int num = int.Parse(TimeNum.text);
+            if (num == 12)
+            {
+                if (TimeText.text == "PM")
+                {
+                    int daynum = int.Parse(DayNum.text);
+                    daynum += 1;
+                    DayNum.text = daynum.ToString();
+                    TimeText.text = "AM";
+                }
+                else if (TimeText.text == "AM")
+                {
+                    TimeText.text = "PM";
+                }
+                TimeNum.text = "1";
+            }
+            else if (num != 12)
+            {
+                num += 1;
+                TimeNum.text = num.ToString();
+            }
+            timefordatetimechange = Time.time + 30f;
+        }
+    }
 }

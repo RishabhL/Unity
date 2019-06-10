@@ -27,7 +27,6 @@ public class Inventory : MonoBehaviour
             if (items[i] == null)
             {
                 items[i] = item;
-                Debug.Log("Added Item" + items[i]);
                 if (onItemChangedCallback != null)
                 {
                     onItemChangedCallback.Invoke();

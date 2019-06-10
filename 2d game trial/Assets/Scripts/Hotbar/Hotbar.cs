@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Animations;
 
 public class Hotbar : MonoBehaviour
 {
@@ -22,7 +23,16 @@ public class Hotbar : MonoBehaviour
     public static Hotbar instance;
     public delegate void OnItemChanged();
     public OnItemChanged onItemChangedCallback;
-    
+
+    public Item currentequipped = null;
+
+    public Animator playeranimator;
+
+    public AnimatorOverrideController spear;
+    public AnimatorOverrideController axe;
+    public RuntimeAnimatorController playeranimator2;
+
+
     void Awake()
     {
         instance = this;
@@ -44,9 +54,9 @@ public class Hotbar : MonoBehaviour
                 int numberPressed = i;
                 int currentPressed = numberPressed;
                 numberPressed = i + 1;
-                Debug.Log(numberPressed);
                 SetActiveHSlot(hslots[i]);
-                
+                currentequipped = items[i];
+                Usecurrent();
             }
             
         }
@@ -57,7 +67,6 @@ public class Hotbar : MonoBehaviour
         {
             hslots.Add(transform.GetChild(n).GetChild(0).transform);
         }
-        Debug.Log(hslots);
     }
     void SetActiveHSlot(Transform Hslot)
     {
@@ -67,5 +76,29 @@ public class Hotbar : MonoBehaviour
         }
         Hslot.GetComponent<Image>().color = new Color(255, 255, 0);
 
+    }
+    void Usecurrent()
+    {
+        if (currentequipped is WeaponItem)
+        {
+            if (currentequipped.Itemname == "Spear")
+            {
+                Debug.Log("Spear equipped");
+                playeranimator.runtimeAnimatorController = spear as RuntimeAnimatorController;
+
+            }
+            if (currentequipped.Itemname == "Axe")
+            {
+                Debug.Log("Axe equipped");
+                playeranimator.runtimeAnimatorController = axe as RuntimeAnimatorController;
+
+            }
+
+        }
+        else if (currentequipped is null)
+        {
+            Debug.Log("Nothing equipped");
+            playeranimator.runtimeAnimatorController = playeranimator2;
+        }
     }
 }
