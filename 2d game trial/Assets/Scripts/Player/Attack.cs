@@ -18,6 +18,16 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameObject.Find("Hotbar").GetComponent<Hotbar>().currentequipped != null)
+        {
+            damage = GameObject.Find("Hotbar").GetComponent<Hotbar>().currentequipped.Damage_Actual;
+        }
+        else
+        {
+            damage = 1;
+
+        }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1aed8f11109e54a9be36d300ebafc5, type: 3}
+  m_Name: Spear_Legendary
+  m_EditorClassIdentifier: 
+  Itemname: Spear
+  Icon: {fileID: 21300000, guid: ddf9bb7810b99994d947160660366180, type: 3}
+  itemprefab: {fileID: 2369364105589353993, guid: 561f313826c7f664a9725ecbc4f9b0e1,
+    type: 3}
+  Damage_Actual: 5
+  Rarity: 4
+  Damage: 0

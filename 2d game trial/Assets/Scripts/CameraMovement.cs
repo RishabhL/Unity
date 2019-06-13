@@ -16,6 +16,8 @@ public class CameraMovement : MonoBehaviour
     }
 
     // Update is called once per frame
+
+    // Function to move the camera to hte player's position.
     void LateUpdate()
     {
         if (transform.position != target.position)

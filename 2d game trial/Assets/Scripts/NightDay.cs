@@ -64,7 +64,7 @@ public class NightDay : MonoBehaviour
         {
             if (Time.time >= timeChange)
             {
-                currentco += 0.01f;
+                currentco += 0.003f;
                 TilemapCo.color = new Color(currentco, currentco, currentco);
                 CollCo.color = new Color(currentco, currentco, currentco);
                 timeChange = Time.time + 1f;
@@ -82,7 +82,7 @@ public class NightDay : MonoBehaviour
         {
             if (Time.time >= timeChange)
             {
-                currentco -= 0.01f;
+                currentco -= 0.003f;
                 TilemapCo.color = new Color(currentco, currentco, currentco);
                 CollCo.color = new Color(currentco, currentco, currentco);
                 timeChange = Time.time + 1f;

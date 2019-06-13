@@ -16,11 +16,19 @@ public class PlayerHit : MonoBehaviour
 
     }
 
+    // If the player hits the pot, calling the function for the pot to "Smash"
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Breakable"))
         {
-            collision.GetComponent<Pot>().Smash();
+            if (collision.GetComponent<Pot>() != null)
+            {
+                collision.GetComponent<Pot>().Smash();
+            }
+            else if (collision.GetComponent<Pot>() != null)
+            {
+                collision.GetComponent<Pot1>().Smash();
+            }
         }
     }
 }   

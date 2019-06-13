@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class PlayerController : MonoBehaviour
 {
+    // Importing all the needed components
     public Animator animator;
     public GameObject crossHair;
     public GameObject inventory;
@@ -21,7 +22,7 @@ public class PlayerController : MonoBehaviour
     Vector2 cross;
 
 
-
+    // Locking and hiding the cursor at the start of the program
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked; 
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // If the inventory is open, enabling the cursor
         if (inventory.activeInHierarchy)
         {
             Setallzero();
@@ -40,16 +41,19 @@ public class PlayerController : MonoBehaviour
             Cursor.visible = true;
 
         }
+        // If the inventory is closed, disabling the cursor
         else if (!inventory.activeInHierarchy)
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            // Calling the functions below
             Inputs();
             Shooting();
             Animations();
             Move();
         }
     }
+    // Function that gets the inputs from the user
     private void Inputs()
     {
         movement = new Vector3(Input.GetAxisRaw("Horizontal") * 2, Input.GetAxisRaw("Vertical") * 2, 0f);
@@ -59,7 +63,7 @@ public class PlayerController : MonoBehaviour
         aim.y = Mathf.Clamp(aim.y, transform.position.y+ minaim.y, transform.position.y + maxaim.y);
 
     }
-
+    // Function that animates the player depending on the inputs given by the user
     private void Animations()
     {
         animator.SetFloat("Horizontal", movement.x);
@@ -71,12 +75,15 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Aiming", Input.GetButtonDown("Fire1"));
 
     }
+
+    // Moving the player, depending on the inputs given by the user
     private void Move()
     {
         // transform.position = transform.position + movement * Time.deltaTime;
         rb.velocity = new Vector2(movement.x, movement.y);
     }
 
+    // Changing the position of the crosshair, depending on the inputs given by the user
     private void Shooting()
     {
         crossHair.transform.position = aim;

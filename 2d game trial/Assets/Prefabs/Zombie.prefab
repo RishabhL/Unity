@@ -121,6 +121,23 @@ MonoBehaviour:
   health: 5
   dodamage: 2
   Moving: 0
+  HeartModule: {fileID: 4771473715670945205, guid: 94b643c2e45cb524bbe5e9e093b492aa,
+    type: 3}
+  Coin: {fileID: 362416375010297267, guid: bf2bb5da389d69844a11a6b01e0a68be, type: 3}
+  Axe:
+  - {fileID: 11400000, guid: 3877c042cdc85144ebd97457ec116137, type: 2}
+  - {fileID: 11400000, guid: 62580024e3abfc648beeb73eadcc40a7, type: 2}
+  - {fileID: 11400000, guid: 17fe1115fbc65e348855976a2b362d98, type: 2}
+  - {fileID: 11400000, guid: af31445bedf0d684dbc4c117cda02e76, type: 2}
+  - {fileID: 11400000, guid: f3520b5a8bbb7df46a62792c1fbe4b56, type: 2}
+  Spear:
+  - {fileID: 11400000, guid: a245fd3aa020daf4a909c34981bde2f2, type: 2}
+  - {fileID: 11400000, guid: 8450a10cc8b748846b03d5401cc3fca1, type: 2}
+  - {fileID: 11400000, guid: 546a2f27c19082c4e87685f730f889d6, type: 2}
+  - {fileID: 11400000, guid: 8d9b2a5270abd2f41bc89c7ebc83eab4, type: 2}
+  - {fileID: 11400000, guid: 08f8b88aa13d8484eb2fb1bb60a51da9, type: 2}
+  axe: {fileID: 5079696770794706492, guid: 6540e834547913245980e014dcf2201b, type: 3}
+  spear: {fileID: 2369364105589353993, guid: 561f313826c7f664a9725ecbc4f9b0e1, type: 3}
 --- !u!50 &2344448848826070791
 Rigidbody2D:
   serializedVersion: 4

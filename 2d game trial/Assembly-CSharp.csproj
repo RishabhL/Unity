@@ -62,10 +62,12 @@
   <ItemGroup>
     <Compile Include="Assets\displaystored.cs" />
     <Compile Include="Assets\EasyMainMenu\Scripts\Main Menu Scripts\MainMenuController.cs" />
+    <Compile Include="Assets\enterances.cs" />
     <Compile Include="Assets\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\Scripts\Chest.cs" />
-    <Compile Include="Assets\Scripts\Death\TS.cs" />
+    <Compile Include="Assets\Scripts\Death\Death_Screen.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Enemy1.cs" />
     <Compile Include="Assets\Scripts\Hotbar\Hotbar.cs" />
     <Compile Include="Assets\Scripts\Hotbar\HotbarUI.cs" />
     <Compile Include="Assets\Scripts\Hotbar\HSlot.cs" />
@@ -89,8 +91,10 @@
     <Compile Include="Assets\Scripts\Player\PlayerHit.cs" />
     <Compile Include="Assets\Scripts\Player\Textbox.cs" />
     <Compile Include="Assets\Scripts\Pot.cs" />
+    <Compile Include="Assets\Scripts\Pot1.cs" />
     <Compile Include="Assets\Scripts\RandomTiles.cs" />
     <Compile Include="Assets\Scripts\SpawnZombies.cs" />
+    <Compile Include="Assets\Scripts\SpawnZombies1.cs" />
     <Compile Include="Assets\storedt.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

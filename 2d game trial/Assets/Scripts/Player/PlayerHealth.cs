@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 
 {
+    // Importing the needed components
     public int health = 5;
     private int damagedlt;
 
@@ -32,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         CheckHealth();
     } 
     
+    // Creates the hearts as full at the start
     void Initialise()
     {
         for (int i = 0; i < hearts.Length; i++)
@@ -41,6 +43,7 @@ public class PlayerHealth : MonoBehaviour
         }
 
     }
+    // Updating the heart every frame
     void UpdateHearts()
     {
         for (int i = 0; i < hearts.Length; i++)

@@ -14,7 +14,26 @@ public class Slot : MonoBehaviour, IDropHandler
         item = newItem;
         Icon.sprite = item.Icon;
         Icon.enabled = true;
-
+        if (newItem.Rarity == Rarity.Common)
+        {
+            gameObject.GetComponentInChildren<Image>().color = Color.grey;
+        }
+        else if (newItem.Rarity == Rarity.Uncommon)
+        {
+            gameObject.GetComponentInChildren<Image>().color = Color.green;
+        }
+        else if (newItem.Rarity == Rarity.Rare)
+        {
+            gameObject.GetComponentInChildren<Image>().color = Color.magenta;
+        }
+        else if (newItem.Rarity == Rarity.Epic)
+        {
+            gameObject.GetComponentInChildren<Image>().color = Color.blue;
+        }
+        else if (newItem.Rarity == Rarity.Legendary)
+        {
+            gameObject.GetComponentInChildren<Image>().color = Color.yellow;
+        }
     }
     public void RemoveItem()
     {
@@ -22,6 +41,7 @@ public class Slot : MonoBehaviour, IDropHandler
 
         Icon.sprite = null;
         Icon.enabled = false;
+        gameObject.GetComponentInChildren<Image>().color = Color.white;
 
     }
     public void UseItem()
